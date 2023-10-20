@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics;
 
-using pleasework.Contracts.Services;
+using ContactLink.Contracts.Services;
 
-namespace pleasework.Services;
+namespace ContactLink.Services;
 
 public class SystemService : ISystemService
 {

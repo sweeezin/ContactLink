@@ -3,7 +3,7 @@ using System.Windows.Controls;
 
 using MahApps.Metro.Controls;
 
-namespace pleasework.TemplateSelectors;
+namespace ContactLink.TemplateSelectors;
 
 public class MenuItemTemplateSelector : DataTemplateSelector
 {

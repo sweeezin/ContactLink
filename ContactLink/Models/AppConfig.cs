@@ -1,4 +1,4 @@
-﻿namespace pleasework.Models;
+﻿namespace ContactLink.Models;
 
 public class AppConfig
 {

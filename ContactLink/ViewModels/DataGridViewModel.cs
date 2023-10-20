@@ -3,11 +3,11 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
-using pleasework.Contracts.ViewModels;
-using pleasework.Core.Contracts.Services;
-using pleasework.Core.Models;
+using ContactLink.Contracts.ViewModels;
+using ContactLink.Core.Contracts.Services;
+using ContactLink.Core.Models;
 
-namespace pleasework.ViewModels;
+namespace ContactLink.ViewModels;
 
 public class DataGridViewModel : ObservableObject, INavigationAware
 {

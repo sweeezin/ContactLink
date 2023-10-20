@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace pleasework.Contracts.Views;
+namespace ContactLink.Contracts.Views;
 
 public interface IShellWindow
 {

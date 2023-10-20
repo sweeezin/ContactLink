@@ -3,12 +3,12 @@ using System.Net.NetworkInformation;
 using System.Reflection;
 using System.Security.Cryptography;
 
+using ContactLink.Core.Contracts.Services;
+using ContactLink.Core.Helpers;
+
 using Microsoft.Identity.Client;
 
-using pleasework.Core.Contracts.Services;
-using pleasework.Core.Helpers;
-
-namespace pleasework.Core.Services;
+namespace ContactLink.Core.Services;
 
 public class IdentityService : IIdentityService
 {

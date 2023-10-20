@@ -1,10 +1,10 @@
 ﻿using System.Windows.Controls;
 using System.Windows.Navigation;
 
-using pleasework.Contracts.Services;
-using pleasework.Contracts.ViewModels;
+using ContactLink.Contracts.Services;
+using ContactLink.Contracts.ViewModels;
 
-namespace pleasework.Services;
+namespace ContactLink.Services;
 
 public class NavigationService : INavigationService
 {

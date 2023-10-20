@@ -1,11 +1,11 @@
 ﻿using System.IO;
 using System.Text;
 
+using ContactLink.Core.Contracts.Services;
+
 using Newtonsoft.Json;
 
-using pleasework.Core.Contracts.Services;
-
-namespace pleasework.Core.Services;
+namespace ContactLink.Core.Services;
 
 public class FileService : IFileService
 {

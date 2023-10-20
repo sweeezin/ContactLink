@@ -1,4 +1,4 @@
-﻿namespace pleasework.Core.Helpers;
+﻿namespace ContactLink.Core.Helpers;
 
 public enum LoginResultType
 {

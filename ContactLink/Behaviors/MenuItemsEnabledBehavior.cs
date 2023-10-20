@@ -4,7 +4,7 @@ using MahApps.Metro.Controls;
 
 using Microsoft.Xaml.Behaviors;
 
-namespace pleasework.Behaviors;
+namespace ContactLink.Behaviors;
 
 public class MenuItemsEnabledBehavior : Behavior<HamburgerMenu>
 {

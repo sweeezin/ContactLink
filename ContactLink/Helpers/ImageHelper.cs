@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Windows.Media.Imaging;
 
-namespace pleasework.Helpers;
+namespace ContactLink.Helpers;
 
 public static class ImageHelper
 {

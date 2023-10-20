@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace pleasework.Tests.MSTest;
+namespace ContactLink.Tests.MSTest;
 
 // TODO: Add appropriate unit tests.
 [TestClass]

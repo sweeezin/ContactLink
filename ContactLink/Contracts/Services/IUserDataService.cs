@@ -1,6 +1,6 @@
-﻿using pleasework.ViewModels;
+﻿using ContactLink.ViewModels;
 
-namespace pleasework.Contracts.Services;
+namespace ContactLink.Contracts.Services;
 
 public interface IUserDataService
 {

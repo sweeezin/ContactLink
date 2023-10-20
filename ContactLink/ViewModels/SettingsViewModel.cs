@@ -3,16 +3,16 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
+using ContactLink.Contracts.Services;
+using ContactLink.Contracts.ViewModels;
+using ContactLink.Core.Contracts.Services;
+using ContactLink.Core.Helpers;
+using ContactLink.Helpers;
+using ContactLink.Models;
+
 using Microsoft.Extensions.Options;
 
-using pleasework.Contracts.Services;
-using pleasework.Contracts.ViewModels;
-using pleasework.Core.Contracts.Services;
-using pleasework.Core.Helpers;
-using pleasework.Helpers;
-using pleasework.Models;
-
-namespace pleasework.ViewModels;
+namespace ContactLink.ViewModels;
 
 // TODO: Change the URL for your privacy policy in the appsettings.json file, currently set to https://YourPrivacyUrlGoesHere
 public class SettingsViewModel : ObservableObject, INavigationAware

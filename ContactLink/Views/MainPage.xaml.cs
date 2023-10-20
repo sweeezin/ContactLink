@@ -1,8 +1,8 @@
 ﻿using System.Windows.Controls;
 
-using pleasework.ViewModels;
+using ContactLink.ViewModels;
 
-namespace pleasework.Views;
+namespace ContactLink.Views;
 
 public partial class MainPage : Page
 {

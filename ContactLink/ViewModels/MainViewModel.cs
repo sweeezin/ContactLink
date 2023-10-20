@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
-namespace pleasework.ViewModels;
+namespace ContactLink.ViewModels;
 
 public class MainViewModel : ObservableObject
 {

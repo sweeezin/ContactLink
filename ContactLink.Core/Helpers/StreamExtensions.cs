@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace pleasework.Core.Helpers;
+namespace ContactLink.Core.Helpers;
 
 public static class StreamExtensions
 {

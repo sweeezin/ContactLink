@@ -1,4 +1,4 @@
-﻿namespace pleasework.Contracts.Activation;
+﻿namespace ContactLink.Contracts.Activation;
 
 public interface IActivationHandler
 {

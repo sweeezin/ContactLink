@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using System.Windows.Data;
 
-namespace pleasework.Converters;
+namespace ContactLink.Converters;
 
 public class EnumToBooleanConverter : IValueConverter
 {

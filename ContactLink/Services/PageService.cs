@@ -2,11 +2,11 @@
 
 using CommunityToolkit.Mvvm.ComponentModel;
 
-using pleasework.Contracts.Services;
-using pleasework.ViewModels;
-using pleasework.Views;
+using ContactLink.Contracts.Services;
+using ContactLink.ViewModels;
+using ContactLink.Views;
 
-namespace pleasework.Services;
+namespace ContactLink.Services;
 
 public class PageService : IPageService
 {

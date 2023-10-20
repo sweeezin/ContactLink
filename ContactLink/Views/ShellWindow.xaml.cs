@@ -1,11 +1,11 @@
 ﻿using System.Windows.Controls;
 
+using ContactLink.Contracts.Views;
+using ContactLink.ViewModels;
+
 using MahApps.Metro.Controls;
 
-using pleasework.Contracts.Views;
-using pleasework.ViewModels;
-
-namespace pleasework.Views;
+namespace ContactLink.Views;
 
 public partial class ShellWindow : MetroWindow, IShellWindow
 {

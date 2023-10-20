@@ -1,4 +1,4 @@
-﻿namespace pleasework.Core.Contracts.Services;
+﻿namespace ContactLink.Core.Contracts.Services;
 
 public interface IFileService
 {

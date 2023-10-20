@@ -2,7 +2,7 @@
 
 using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace pleasework.ViewModels;
+namespace ContactLink.ViewModels;
 
 public class UserViewModel : ObservableObject
 {

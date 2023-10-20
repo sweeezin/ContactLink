@@ -1,12 +1,12 @@
 ﻿using System.Windows;
 
+using ContactLink.Core.Helpers;
+using ContactLink.Properties;
+
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 
-using pleasework.Core.Helpers;
-using pleasework.Properties;
-
-namespace pleasework.Helpers;
+namespace ContactLink.Helpers;
 
 internal static class AuthenticationHelper
 {

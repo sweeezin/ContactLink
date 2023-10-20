@@ -1,15 +1,15 @@
 ﻿using System.IO;
 
+using ContactLink.Contracts.Services;
+using ContactLink.Core.Contracts.Services;
+using ContactLink.Core.Models;
+using ContactLink.Helpers;
+using ContactLink.Models;
+using ContactLink.ViewModels;
+
 using Microsoft.Extensions.Options;
 
-using pleasework.Contracts.Services;
-using pleasework.Core.Contracts.Services;
-using pleasework.Core.Models;
-using pleasework.Helpers;
-using pleasework.Models;
-using pleasework.ViewModels;
-
-namespace pleasework.Services;
+namespace ContactLink.Services;
 
 public class UserDataService : IUserDataService
 {

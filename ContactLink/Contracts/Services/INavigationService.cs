@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace pleasework.Contracts.Services;
+namespace ContactLink.Contracts.Services;
 
 public interface INavigationService
 {

@@ -1,7 +1,7 @@
-﻿using pleasework.Core.Contracts.Services;
-using pleasework.Core.Models;
+﻿using ContactLink.Core.Contracts.Services;
+using ContactLink.Core.Models;
 
-namespace pleasework.Core.Services;
+namespace ContactLink.Core.Services;
 
 // This class holds sample data used by some generated pages to show how they can be used.
 // TODO: The following classes have been created to display sample data. Delete these files once your app is using real data.

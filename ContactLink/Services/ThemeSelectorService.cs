@@ -1,13 +1,13 @@
 ﻿using System.Windows;
 
+using ContactLink.Contracts.Services;
+using ContactLink.Models;
+
 using ControlzEx.Theming;
 
 using MahApps.Metro.Theming;
 
-using pleasework.Contracts.Services;
-using pleasework.Models;
-
-namespace pleasework.Services;
+namespace ContactLink.Services;
 
 public class ThemeSelectorService : IThemeSelectorService
 {

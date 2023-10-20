@@ -1,20 +1,20 @@
 ﻿using System.IO;
 using System.Reflection;
 
+using ContactLink.Contracts.Services;
+using ContactLink.Core.Contracts.Services;
+using ContactLink.Core.Services;
+using ContactLink.Models;
+using ContactLink.Services;
+using ContactLink.ViewModels;
+using ContactLink.Views;
+
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using pleasework.Contracts.Services;
-using pleasework.Core.Contracts.Services;
-using pleasework.Core.Services;
-using pleasework.Models;
-using pleasework.Services;
-using pleasework.ViewModels;
-using pleasework.Views;
-
-namespace pleasework.Tests.MSTest;
+namespace ContactLink.Tests.MSTest;
 
 [TestClass]
 public class PagesTests

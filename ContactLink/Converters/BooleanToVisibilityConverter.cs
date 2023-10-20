@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Data;
 
-namespace pleasework.Converters;
+namespace ContactLink.Converters;
 
 public class BooleanToVisibilityConverter : IValueConverter
 {

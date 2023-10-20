@@ -1,9 +1,9 @@
 ﻿using System.Diagnostics;
 using System.Reflection;
 
-using pleasework.Contracts.Services;
+using ContactLink.Contracts.Services;
 
-namespace pleasework.Services;
+namespace ContactLink.Services;
 
 public class ApplicationInfoService : IApplicationInfoService
 {
@@ -13,7 +13,7 @@ public class ApplicationInfoService : IApplicationInfoService
 
     public Version GetVersion()
     {
-        // Set the app version in pleasework > Properties > Package > PackageVersion
+        // Set the app version in ContactLink > Properties > Package > PackageVersion
         string assemblyLocation = Assembly.GetExecutingAssembly().Location;
         var version = FileVersionInfo.GetVersionInfo(assemblyLocation).FileVersion;
         return new Version(version);

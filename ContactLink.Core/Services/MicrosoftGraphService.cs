@@ -1,13 +1,13 @@
 ﻿using System.Net.Http;
 using System.Net.Http.Headers;
 
+using ContactLink.Core.Contracts.Services;
+using ContactLink.Core.Helpers;
+using ContactLink.Core.Models;
+
 using Newtonsoft.Json;
 
-using pleasework.Core.Contracts.Services;
-using pleasework.Core.Helpers;
-using pleasework.Core.Models;
-
-namespace pleasework.Core.Services;
+namespace ContactLink.Core.Services;
 
 public class MicrosoftGraphService : IMicrosoftGraphService
 {

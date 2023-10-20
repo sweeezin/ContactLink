@@ -1,6 +1,6 @@
-﻿using pleasework.Core.Models;
+﻿using ContactLink.Core.Models;
 
-namespace pleasework.Core.Contracts.Services;
+namespace ContactLink.Core.Contracts.Services;
 
 public interface IMicrosoftGraphService
 {

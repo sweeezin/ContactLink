@@ -1,4 +1,4 @@
-﻿namespace pleasework.Contracts.ViewModels;
+﻿namespace ContactLink.Contracts.ViewModels;
 
 public interface INavigationAware
 {

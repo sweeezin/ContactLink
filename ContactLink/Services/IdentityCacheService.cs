@@ -3,9 +3,9 @@ using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 
-using pleasework.Core.Contracts.Services;
+using ContactLink.Core.Contracts.Services;
 
-namespace pleasework.Services;
+namespace ContactLink.Services;
 
 public class IdentityCacheService : IIdentityCacheService
 {

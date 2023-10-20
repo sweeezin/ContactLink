@@ -1,14 +1,14 @@
-﻿using Microsoft.Extensions.Options;
+﻿using ContactLink.Contracts.Services;
+using ContactLink.Core.Contracts.Services;
+using ContactLink.Models;
+using ContactLink.ViewModels;
+
+using Microsoft.Extensions.Options;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using Moq;
 
-using pleasework.Contracts.Services;
-using pleasework.Core.Contracts.Services;
-using pleasework.Models;
-using pleasework.ViewModels;
-
-namespace pleasework.Tests.MSTest;
+namespace ContactLink.Tests.MSTest;
 
 [TestClass]
 public class SettingsViewModelTests
@@ -49,7 +49,7 @@ public class SettingsViewModelTests
         var settingsVm = new SettingsViewModel(mockAppConfig.Object, mockThemeSelectorService.Object, mockSystemService.Object, mockApplicationInfoService.Object, mockUserDataService.Object, mockIdentityService.Object);
         settingsVm.OnNavigatedTo(null);
 
-        Assert.AreEqual($"pleasework - {testVersion}", settingsVm.VersionDescription);
+        Assert.AreEqual($"ContactLink - {testVersion}", settingsVm.VersionDescription);
     }
 
     [TestMethod]

@@ -5,15 +5,15 @@ using System.Windows.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
+using ContactLink.Contracts.Services;
+using ContactLink.Core.Contracts.Services;
+using ContactLink.Core.Helpers;
+using ContactLink.Helpers;
+using ContactLink.Properties;
+
 using MahApps.Metro.Controls;
 
-using pleasework.Contracts.Services;
-using pleasework.Core.Contracts.Services;
-using pleasework.Core.Helpers;
-using pleasework.Helpers;
-using pleasework.Properties;
-
-namespace pleasework.ViewModels;
+namespace ContactLink.ViewModels;
 
 public class ShellViewModel : ObservableObject
 {
