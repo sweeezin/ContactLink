@@ -5,7 +5,7 @@
     <IsPackable>false</IsPackable>
     <AssetTargetFallback>uap10.0.18362</AssetTargetFallback>
     <Platforms>x64;x86;AnyCPU</Platforms>
-    <RootNamespace>pleasework.Tests.MSTest</RootNamespace>
+    <RootNamespace>ContactLink.Tests.MSTest</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
@@ -30,7 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\pleasework\ContactLink.csproj" />
+    <ProjectReference Include="..\ContactLink\ContactLink.csproj" />
   </ItemGroup>
 
 </Project>

@@ -5,9 +5,9 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactLink", "ContactLink.csproj", "{1B1CFE4A-3CD6-4BB7-8096-0CAA235BAD26}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactLink.Core", "..\pleasework.Core\ContactLink.Core.csproj", "{9211CAA5-0DDB-48F1-9CB1-93D293362012}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactLink.Core", "..\ContactLink.Core\ContactLink.Core.csproj", "{9211CAA5-0DDB-48F1-9CB1-93D293362012}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactLink.Tests.MSTest", "..\pleasework.Tests.MSTest\ContactLink.Tests.MSTest.csproj", "{6ED9CF37-716A-49C3-ABC1-321089B50CC8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactLink.Tests.MSTest", "..\ContactLink.Tests.MSTest\ContactLink.Tests.MSTest.csproj", "{6ED9CF37-716A-49C3-ABC1-321089B50CC8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

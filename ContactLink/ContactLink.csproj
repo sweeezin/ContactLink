@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows10.0.19041.0</TargetFramework>
-    <RootNamespace>pleasework</RootNamespace>
+    <RootNamespace>ContactLink</RootNamespace>
     <UseWPF>true</UseWPF>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -17,7 +17,7 @@
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\pleasework.Core\ContactLink.Core.csproj" />
+    <ProjectReference Include="..\ContactLink.Core\ContactLink.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\DefaultIcon.png" />
