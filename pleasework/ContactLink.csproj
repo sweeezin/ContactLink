@@ -17,7 +17,7 @@
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\pleasework.Core\pleasework.Core.csproj" />
+    <ProjectReference Include="..\pleasework.Core\ContactLink.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\DefaultIcon.png" />

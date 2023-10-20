@@ -30,7 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\pleasework\pleasework.csproj" />
+    <ProjectReference Include="..\pleasework\ContactLink.csproj" />
   </ItemGroup>
 
 </Project>
