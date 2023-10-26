@@ -107,6 +107,8 @@ studentAdvisor
 inner join  student A on studentAdvisor.SID = A.SID
 inner join advisor B on studentAdvisor.AID = B.AID
 
+BRUH 
+
 */
 
 
