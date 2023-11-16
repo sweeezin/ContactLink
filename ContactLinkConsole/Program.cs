@@ -5,9 +5,9 @@ Console.WriteLine("-- Start to show student info:");
 
 Student.DisplayStudent();
 CLOGManager.DisplayCLOG();
-CLOG clog = new CLOG(12345555, "lastName", "firstName", "email", "number", "profession", "organization", "mentorExp", "receivedFrom", "lastContactedDate");
+CLOG clog = new CLOG(1, "lastName", "firstName", "email", "number", "profession", "role", "organization", "mentorExp", "receivedFrom", DateTime.Now);
 CLOGManager.InsertNewCLOG(clog);
-
+CLOGManager.DisplayCLOG();
 
 Console.WriteLine("That's all");
 

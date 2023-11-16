@@ -17,6 +17,7 @@ namespace ContactLinkDBAccess
         public string email;
         public string studentID;
         public string profession;
+        public string role;
         public string organization;
         public string mentor_experience;
         public string recieved_from;
@@ -56,10 +57,11 @@ namespace ContactLinkDBAccess
                         ContactLog.email = reader.GetString(3);
                         ContactLog.number = reader.GetString(4); 
                         ContactLog.profession = reader.GetString(5); 
-                        ContactLog.organization = reader.GetString(6); 
-                        ContactLog.mentor_experience = reader.GetString(7); 
-                        ContactLog.recieved_from = reader.GetString(8); 
-                        ContactLog.last_contacted_date = reader.GetString(9); 
+                        ContactLog.role = reader.GetString(6);
+                        ContactLog.organization = reader.GetString(7); 
+                        ContactLog.mentor_experience = reader.GetString(8); 
+                        ContactLog.recieved_from = reader.GetString(9); 
+                        ContactLog.last_contacted_date = reader.GetString(10); 
 
 
                         contact.Add(ContactLog);
@@ -84,7 +86,7 @@ namespace ContactLinkDBAccess
             {
                 connection.Open();
 
-                using (SqlCommand command = new SqlCommand("INSERT INTO ContactLog (LastName, FirstName, Email, Number, Profession, Organization, Mentor_Experience, Received_From, Last_Contacted_Date) VALUES (@LastName, @FirstName, @Email, @Number, @Profession, @Organization, @MentorExperience, @ReceivedFrom, @LastContactedDate)", connection))
+                using (SqlCommand command = new SqlCommand("INSERT INTO ContactLog (LastName, FirstName, Email, Number, Profession, Role, Organization, Mentor_Experience, Received_From, Last_Contacted_Date) VALUES (@LastName, @FirstName, @Email, @Number, @Profession, @Role, @Organization, @MentorExperience, @ReceivedFrom, @LastContactedDate); SELECT SCOPE_IDENTITY();", connection))
                 {
                     // Add parameters to the SQL command
                     command.Parameters.AddWithValue("@LastName", newCLOG.LastName);
@@ -92,6 +94,7 @@ namespace ContactLinkDBAccess
                     command.Parameters.AddWithValue("@Email", newCLOG.Email);
                     command.Parameters.AddWithValue("@Number", newCLOG.Number);
                     command.Parameters.AddWithValue("@Profession", newCLOG.Profession);
+                    command.Parameters.AddWithValue("@Role", newCLOG.Role);
                     command.Parameters.AddWithValue("@Organization", newCLOG.Organization);
                     command.Parameters.AddWithValue("@MentorExperience", newCLOG.MentorExperience);
                     command.Parameters.AddWithValue("@ReceivedFrom", newCLOG.ReceivedFrom);
@@ -132,12 +135,13 @@ namespace ContactLinkDBAccess
                         string email = reader.GetString(3); 
                         string number = reader.GetString(4);
                         string profession = reader.GetString(5);
-                        string organization = reader.GetString(6);
-                        string mentor_experience = reader.GetString(7);
-                        string recieved_from = reader.GetString(8);
-                        string last_contacted_date = reader.GetString(9);
+                        string role = reader.GetString(6);
+                        string organization = reader.GetString(7);
+                        string mentor_experience = reader.GetString(8);
+                        string recieved_from = reader.GetString(9);
+                        DateTime last_contacted_date = reader.GetDateTime(10);
 
-                        Console.WriteLine($"{studentID}\t{LastName}\t{FirstName}\t{email}\t{number}\t{profession}\t{organization}\t{mentor_experience}\t{recieved_from}\t{last_contacted_date}");
+                        Console.WriteLine($"{studentID}\t{LastName}\t{FirstName}\t{email}\t{number}\t{profession}\t{role}\t{organization}\t{mentor_experience}\t{recieved_from}\t{last_contacted_date}");
                     }
 
                 }
@@ -158,17 +162,18 @@ public class CLOG
     public string Email { get; set; }
     public string Number { get; set; }
     public string Profession { get; set; }
+    public string Role { get; set; }
     public string Organization { get; set; }
     public string MentorExperience { get; set; }
     public string ReceivedFrom { get; set; }
-    public string LastContactedDate { get; set; }
+    public DateTime LastContactedDate { get; set; }
 
     // ... other properties
 
     public CLOG() { }
 
     // Constructor with all properties
-    public CLOG(int studentID, string lastName, string firstName, string email, string number, string profession, string organization, string mentorExperience, string receivedFrom, string lastContactedDate)
+    public CLOG(int studentID, string lastName, string firstName, string email, string number, string profession, string role, string organization, string mentorExperience, string receivedFrom, DateTime lastContactedDate)
     {
         StudentID = studentID;
         LastName = lastName;
@@ -176,6 +181,7 @@ public class CLOG
         Email = email;
         Number = number;
         Profession = profession;
+        Role = role;
         Organization = organization;
         MentorExperience = mentorExperience;
         ReceivedFrom = receivedFrom;
@@ -211,10 +217,11 @@ class Program
             Email = "fiona.y.jin@gmail.com",
             Number = "425-451-8621",
             Profession = "declogger",
+            Role = "pro gamer",
             Organization = "clog",
             MentorExperience = "Experienced mentor",
             ReceivedFrom = "Referral",
-            LastContactedDate = "now",
+            LastContactedDate = DateTime.Now,
         };
 
         // Inserting the new row into the database
