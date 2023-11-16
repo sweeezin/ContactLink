@@ -1,4 +1,5 @@
-﻿using System;
+﻿/*
+using System;
 using ContactLinkDBAccess;
 public class CLOGManager
 {
@@ -63,3 +64,4 @@ public class CLOGManager
         }
     }
 }
+*/

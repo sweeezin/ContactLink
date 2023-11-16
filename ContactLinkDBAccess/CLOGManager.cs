@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 
 namespace ContactLinkDBAccess
 {
-    public class CLOG
+    public class CLOGManager
     {
         public int SID;
         public string Name;
@@ -24,11 +24,11 @@ namespace ContactLinkDBAccess
 
 
 
-        public CLOG() { }
+        public CLOGManager() { }
 
-        public static List<CLOG> GetAllStudents()
+        public static List<CLOGManager> GetAllClog()
         {
-            List<CLOG> contact = new List<CLOG>();
+            List<CLOGManager> contact = new List<CLOGManager>();
 
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
 
@@ -49,7 +49,7 @@ namespace ContactLinkDBAccess
 
                     while (reader.Read())
                     {
-                        CLOG ContactLog = new CLOG();
+                        CLOGManager ContactLog = new CLOGManager();
                         ContactLog.studentID = reader.GetInt32(0).ToString();
                         ContactLog.LastName = reader.GetString(1);
                         ContactLog.FirstName = reader.GetString(2);
@@ -68,6 +68,39 @@ namespace ContactLinkDBAccess
 
                 }
                 return contact;
+            }
+        }
+
+        public static void InsertNewCLOG(CLOG newCLOG)
+        {
+            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+
+            builder.DataSource = "nutcrackerdb.database.windows.net";
+            builder.UserID = "contactlinkclient";
+            builder.Password = "Big@8013";
+            builder.InitialCatalog = "contactlinkdb";
+
+            using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand("INSERT INTO ContactLog (LastName, FirstName, Email, Number, Profession, Organization, Mentor_Experience, Received_From, Last_Contacted_Date) VALUES (@LastName, @FirstName, @Email, @Number, @Profession, @Organization, @MentorExperience, @ReceivedFrom, @LastContactedDate)", connection))
+                {
+                    // Add parameters to the SQL command
+                    command.Parameters.AddWithValue("@LastName", newCLOG.LastName);
+                    command.Parameters.AddWithValue("@FirstName", newCLOG.FirstName);
+                    command.Parameters.AddWithValue("@Email", newCLOG.Email);
+                    command.Parameters.AddWithValue("@Number", newCLOG.Number);
+                    command.Parameters.AddWithValue("@Profession", newCLOG.Profession);
+                    command.Parameters.AddWithValue("@Organization", newCLOG.Organization);
+                    command.Parameters.AddWithValue("@MentorExperience", newCLOG.MentorExperience);
+                    command.Parameters.AddWithValue("@ReceivedFrom", newCLOG.ReceivedFrom);
+                    command.Parameters.AddWithValue("@LastContactedDate", newCLOG.LastContactedDate);
+                    // Add other parameters as needed
+
+                    // Execute the SQL command
+                    command.ExecuteNonQuery();
+                }
             }
         }
 
@@ -112,3 +145,80 @@ namespace ContactLinkDBAccess
         }
     }
 }
+
+//update database
+
+
+public class CLOG
+{
+    // Properties of your CLOG class
+    public int StudentID { get; set; }
+    public string LastName { get; set; }
+    public string FirstName { get; set; }
+    public string Email { get; set; }
+    public string Number { get; set; }
+    public string Profession { get; set; }
+    public string Organization { get; set; }
+    public string MentorExperience { get; set; }
+    public string ReceivedFrom { get; set; }
+    public string LastContactedDate { get; set; }
+
+    // ... other properties
+
+    public CLOG() { }
+
+    // Constructor with all properties
+    public CLOG(int studentID, string lastName, string firstName, string email, string number, string profession, string organization, string mentorExperience, string receivedFrom, string lastContactedDate)
+    {
+        StudentID = studentID;
+        LastName = lastName;
+        FirstName = firstName;
+        Email = email;
+        Number = number;
+        Profession = profession;
+        Organization = organization;
+        MentorExperience = mentorExperience;
+        ReceivedFrom = receivedFrom;
+        LastContactedDate = lastContactedDate;
+        // Set other properties
+    }
+}
+
+public class DatabaseManager
+{
+    private string connectionString;
+
+    public DatabaseManager(string connectionString)
+    {
+        this.connectionString = connectionString;
+    }
+
+   
+}
+
+class Program
+{
+    static void Main()
+    {
+        string connectionString = "your_connection_string_here";
+        DatabaseManager dbManager = new DatabaseManager(connectionString);
+
+        // Example: Creating a new CLOG instance
+        CLOG newCLOG = new CLOG
+        {
+            LastName = "Jin",
+            FirstName = "Fiona",
+            Email = "fiona.y.jin@gmail.com",
+            Number = "425-451-8621",
+            Profession = "declogger",
+            Organization = "clog",
+            MentorExperience = "Experienced mentor",
+            ReceivedFrom = "Referral",
+            LastContactedDate = "now",
+        };
+
+        // Inserting the new row into the database
+        // dbManager.InsertNewCLOG(newCLOG);
+    }
+}
+
