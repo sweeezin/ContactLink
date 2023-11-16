@@ -23,7 +23,7 @@ namespace ContactLinkDBAccess
         public string recieved_from;
         public string last_contacted_date;
 
-
+        
 
         public CLOGManager() { }
 
@@ -73,7 +73,7 @@ namespace ContactLinkDBAccess
             }
         }
 
-        public static void InsertNewCLOG(CLOG newCLOG)
+        public static int InsertNewCLOG(CLOG newCLOG)
         {
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
 
@@ -100,6 +100,30 @@ namespace ContactLinkDBAccess
                     command.Parameters.AddWithValue("@ReceivedFrom", newCLOG.ReceivedFrom);
                     command.Parameters.AddWithValue("@LastContactedDate", newCLOG.LastContactedDate);
                     // Add other parameters as needed
+
+                    // Execute the SQL command
+                    return Convert.ToInt32(command.ExecuteScalar());
+                }
+            }
+        }
+        public static void DeleteCLOG(int studentID)
+        {
+
+            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+
+            builder.DataSource = "nutcrackerdb.database.windows.net";
+            builder.UserID = "contactlinkclient";
+            builder.Password = "Big@8013";
+            builder.InitialCatalog = "contactlinkdb";
+
+            using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand("DELETE FROM ContactLog WHERE StudentID = @StudentID", connection))
+                {
+                    // Add parameters to the SQL command
+                    command.Parameters.AddWithValue("@StudentID", studentID);
 
                     // Execute the SQL command
                     command.ExecuteNonQuery();
@@ -187,6 +211,19 @@ public class CLOG
         ReceivedFrom = receivedFrom;
         LastContactedDate = lastContactedDate;
         // Set other properties
+    }
+    public CLOG(string lastName, string firstName, string email, string number, string profession, string role, string organization, string mentorExperience, string receivedFrom, DateTime lastContactedDate)
+    {
+        LastName = lastName;
+        FirstName = firstName;
+        Email = email;
+        Number = number;
+        Profession = profession;
+        Role = role;
+        Organization = organization;
+        MentorExperience = mentorExperience;
+        ReceivedFrom = receivedFrom;
+        LastContactedDate = lastContactedDate;
     }
 }
 
