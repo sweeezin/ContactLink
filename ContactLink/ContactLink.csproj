@@ -27,6 +27,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ContactLink.Core\ContactLink.Core.csproj" />
+    <ProjectReference Include="..\ContactLinkDBAccess\ContactLinkDBAccess.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\DefaultIcon.png" />

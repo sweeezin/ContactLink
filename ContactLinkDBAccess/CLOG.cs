@@ -103,6 +103,7 @@ namespace ContactLinkDBAccess
                         string mentor_experience = reader.GetString(7);
                         string recieved_from = reader.GetString(8);
                         string last_contacted_date = reader.GetString(9);
+
                         Console.WriteLine($"{studentID}\t{LastName}\t{FirstName}\t{email}\t{number}\t{profession}\t{organization}\t{mentor_experience}\t{recieved_from}\t{last_contacted_date}");
                     }
 
