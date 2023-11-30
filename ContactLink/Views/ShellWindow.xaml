@@ -86,6 +86,8 @@
                             VerticalAlignment="Center"
                             FontSize="16"
                             Text="{Binding Label}" />
+
+
                     </Grid>
                 </DataTemplate>
             </templateSelectors:MenuItemTemplateSelector.ImageDataTemplate>

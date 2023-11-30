@@ -49,7 +49,28 @@
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
+
             </DataGrid>
+
+
+            <Button Width="35" Height="35" Content="X" FontSize="15" Foreground="Red" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,100,25">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="Transparent" BorderBrush="Red" BorderThickness="2" CornerRadius="25">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Width="35" Height="35" Content="&#xE109;" FontSize="19" Foreground="Green" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,55,25" FontFamily="Segoe MDL2 Assets">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="Transparent" BorderBrush="Green" BorderThickness="2" CornerRadius="25">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
         </Grid>
     </Grid>
 </Page>
