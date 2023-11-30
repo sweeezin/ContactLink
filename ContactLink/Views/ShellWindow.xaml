@@ -115,7 +115,7 @@
                     x:Name="shellFrame"
                     Grid.Row="1"
                     NavigationUIVisibility="Hidden"
-                    Focusable="False" />
+                    Focusable="False" Navigated="shellFrame_Navigated" />
             </controls:HamburgerMenu.Content>
         </controls:HamburgerMenu>
     </controls:MetroWindow.Content>

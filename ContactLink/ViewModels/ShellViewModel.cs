@@ -10,7 +10,7 @@ using ContactLink.Core.Contracts.Services;
 using ContactLink.Core.Helpers;
 using ContactLink.Helpers;
 using ContactLink.Properties;
-
+using ContactLink.Views;
 using MahApps.Metro.Controls;
 
 namespace ContactLink.ViewModels;
@@ -46,8 +46,9 @@ public class ShellViewModel : ObservableObject
     // TODO: Change the icons and titles for all HamburgerMenuItems here.
     public ObservableCollection<HamburgerMenuItem> MenuItems { get; } = new ObservableCollection<HamburgerMenuItem>()
     {
-        new HamburgerMenuGlyphItem() { Label = Resources.ShellMainPage, Glyph = "\uE8A5", TargetPageType = typeof(MainViewModel) },
-        new HamburgerMenuGlyphItem() { Label = Resources.ShellDataGridPage, Glyph = "\uE8A5", TargetPageType = typeof(DataGridViewModel) },
+        new HamburgerMenuGlyphItem() { Label = Resources.ShellMainPage, Glyph = "\uE80F", TargetPageType = typeof(MainViewModel) },
+        new HamburgerMenuGlyphItem() { Label = Resources.ShellDataGridPage, Glyph = "\uE80A", TargetPageType = typeof(DataGridViewModel) },
+        new HamburgerMenuGlyphItem() { Label = Resources.ShellCustomPage, Glyph = "\uE814", TargetPageType = typeof(CustomViewModel) },
     };
 
     public ObservableCollection<HamburgerMenuItem> OptionMenuItems { get; } = new ObservableCollection<HamburgerMenuItem>()

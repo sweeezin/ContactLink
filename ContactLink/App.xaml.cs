@@ -87,6 +87,9 @@ public partial class App : Application
         services.AddTransient<MainViewModel>();
         services.AddTransient<MainPage>();
 
+        services.AddTransient<CustomViewModel>();
+        services.AddTransient<CustomPagexaml>();
+
         services.AddTransient<DataGridViewModel>();
         services.AddTransient<DataGridPage>();
 

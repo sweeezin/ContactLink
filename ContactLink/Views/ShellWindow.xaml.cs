@@ -23,4 +23,9 @@ public partial class ShellWindow : MetroWindow, IShellWindow
 
     public void CloseWindow()
         => Close();
+
+    private void shellFrame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
+    {
+
+    }
 }

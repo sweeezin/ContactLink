@@ -24,16 +24,26 @@ public class DataGridViewModel : ObservableObject, INavigationAware
     {
         Source.Clear();
 
-        // Replace this with your actual data
-        var data = await _sampleDataService.GetGridDataAsync();
+        // Replace this with your actual data retrieval logic
+        var CLOG = CLOG
+        var data = CLOG.GetAllStudents();
 
         foreach (var item in data)
         {
-            Source.Add(item);
+            // Create a new SampleOrder and map properties from CLOG
+            SampleOrder order = new SampleOrder
+            {
+                OrderID = item.studentID,
+                LastName = item.LastName,
+                FirstName = item.FirstName,
+                Email = item.email,
+                Number = item.number,
+                // Map other properties as needed
+            };
+
+            // Add the mapped SampleOrder to the ObservableCollection
+            Source.Add(order);
         }
     }
 
-    public void OnNavigatedFrom()
-    {
-    }
 }
