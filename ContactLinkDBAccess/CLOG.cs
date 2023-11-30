@@ -113,7 +113,6 @@ namespace ContactLinkDBAccess
         public static void UpdateStudent(string firstName, string lastName, string address, string city)
         {
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-
             builder.DataSource = "nutcrackerdb.database.windows.net";
             builder.UserID = "contactlinkclient";
             builder.Password = "Big@8013";
@@ -123,7 +122,7 @@ namespace ContactLinkDBAccess
             {
                 connection.Open();
 
-                using (SqlCommand command = new SqlCommand("UPDATE Student SET Address = @add, City = @cit WHERE FirstName = @fn AND LastName = @ln", connection))
+                using (SqlCommand command = new SqlCommand("UPDATE ContactLog SET Address = @add, City = @cit WHERE FirstName = @fn AND LastName = @ln", connection))
                 {
                     command.Parameters.AddWithValue("@fn", firstName);
                     command.Parameters.AddWithValue("@ln", lastName);
@@ -132,11 +131,8 @@ namespace ContactLinkDBAccess
 
                     int rowsAffected = command.ExecuteNonQuery();
                     Console.WriteLine(rowsAffected + " row(s) updated");
-                }
-            }
-        }
 
-        static public void Main(String[] args)
+                    public static void Main(String[] args)
         {
             Console.WriteLine("Main Method");
         }
