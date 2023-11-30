@@ -54,12 +54,12 @@ namespace ContactLinkDBAccess
                         ContactLog.LastName = reader.GetString(1);
                         ContactLog.FirstName = reader.GetString(2);
                         ContactLog.email = reader.GetString(3);
-                        ContactLog.number = reader.GetString(4); 
-                        ContactLog.profession = reader.GetString(5); 
-                        ContactLog.organization = reader.GetString(6); 
-                        ContactLog.mentor_experience = reader.GetString(7); 
-                        ContactLog.recieved_from = reader.GetString(8); 
-                        ContactLog.last_contacted_date = reader.GetString(9); 
+                        ContactLog.number = reader.GetString(4);
+                        ContactLog.profession = reader.GetString(5);
+                        ContactLog.organization = reader.GetString(6);
+                        ContactLog.mentor_experience = reader.GetString(7);
+                        ContactLog.recieved_from = reader.GetString(8);
+                        ContactLog.last_contacted_date = reader.GetString(9);
 
 
                         contact.Add(ContactLog);
@@ -73,7 +73,7 @@ namespace ContactLinkDBAccess
 
         public static void DisplayCLOG()
         {
-        
+
 
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
 
@@ -94,9 +94,9 @@ namespace ContactLinkDBAccess
                     while (reader.Read())
                     {
                         int studentID = reader.GetInt32(0);
-                        string LastName = reader.GetString(1);  
-                        string FirstName = reader.GetString(2); 
-                        string email = reader.GetString(3); 
+                        string LastName = reader.GetString(1);
+                        string FirstName = reader.GetString(2);
+                        string email = reader.GetString(3);
                         string number = reader.GetString(4);
                         string profession = reader.GetString(5);
                         string organization = reader.GetString(6);
@@ -160,9 +160,9 @@ namespace ContactLinkDBAccess
                     int rowsAffected = command.ExecuteNonQuery();
                     Console.WriteLine(rowsAffected + " row(s) updated");
 
-                    public static void Main(String[] args)
-        {
-            Console.WriteLine("Main Method");
+                }
+            }
         }
     }
 }
+
