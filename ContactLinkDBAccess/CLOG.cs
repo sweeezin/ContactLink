@@ -123,7 +123,6 @@ namespace ContactLinkDBAccess
             string lastContactedDate)
         {
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-
             builder.DataSource = "nutcrackerdb.database.windows.net";
             builder.UserID = "contactlinkclient";
             builder.Password = "Big@8013";
@@ -160,11 +159,8 @@ namespace ContactLinkDBAccess
 
                     int rowsAffected = command.ExecuteNonQuery();
                     Console.WriteLine(rowsAffected + " row(s) updated");
-                }
-            }
-        }
 
-        static public void Main(String[] args)
+                    public static void Main(String[] args)
         {
             Console.WriteLine("Main Method");
         }
