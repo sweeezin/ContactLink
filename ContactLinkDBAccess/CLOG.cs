@@ -110,7 +110,17 @@ namespace ContactLinkDBAccess
             }
         }
 
-        public static void UpdateStudent(string firstName, string lastName, string address, string city)
+        public static void UpdateStudent(int studentID,
+            string lastName,
+            string firstName,
+            string email,
+            string number,
+            string profession,
+            string role,
+            string organization,
+            string mentorExperience,
+            string recievedFrom,
+            string lastContactedDate)
         {
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
 
@@ -123,12 +133,30 @@ namespace ContactLinkDBAccess
             {
                 connection.Open();
 
-                using (SqlCommand command = new SqlCommand("UPDATE Student SET Address = @add, City = @cit WHERE FirstName = @fn AND LastName = @ln", connection))
+                using (SqlCommand command = new SqlCommand(@"UPDATE ContactLog 
+                    SET lastname = @ln, 
+                    firstname = @fn, 
+                    email = @em, 
+                    number = @num, 
+                    profession = @prof, 
+                    role = @rol, 
+                    organization = @org, 
+                    mentor_experience = @menEx, 
+                    received_from = @rf, 
+                    last_contacted_date = @lcd 
+                    WHERE studentID = @sID", connection))
                 {
-                    command.Parameters.AddWithValue("@fn", firstName);
+                    command.Parameters.AddWithValue("@sID", studentID);
                     command.Parameters.AddWithValue("@ln", lastName);
-                    command.Parameters.AddWithValue("@add", address);
-                    command.Parameters.AddWithValue("@cit", city);
+                    command.Parameters.AddWithValue("@fn", firstName);
+                    command.Parameters.AddWithValue("@em", email);
+                    command.Parameters.AddWithValue("@num", number);
+                    command.Parameters.AddWithValue("@prof", profession);
+                    command.Parameters.AddWithValue("@rol", role);
+                    command.Parameters.AddWithValue("@org", organization);
+                    command.Parameters.AddWithValue("@menEX", mentorExperience);
+                    command.Parameters.AddWithValue("@rf", recievedFrom);
+                    command.Parameters.AddWithValue("@lcd", lastContactedDate);
 
                     int rowsAffected = command.ExecuteNonQuery();
                     Console.WriteLine(rowsAffected + " row(s) updated");
