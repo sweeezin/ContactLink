@@ -15,7 +15,7 @@ namespace ContactLinkDBAccess
         public string LastName { get; set; }
         public string number { get; set; }
         public string email { get; set; }
-        public string studentID { get; set; }
+        public int studentID { get; set; }
         public string profession { get; set; }
         public string organization { get; set; }
         public string mentor_experience { get; set; }
@@ -50,7 +50,7 @@ namespace ContactLinkDBAccess
                     while (reader.Read())
                     {
                         CLOG ContactLog = new CLOG();
-                        ContactLog.studentID = reader.GetInt32(0).ToString();
+                        ContactLog.studentID = reader.GetInt32(0);
                         ContactLog.LastName = reader.GetString(1);
                         ContactLog.FirstName = reader.GetString(2);
                         ContactLog.email = reader.GetString(3);

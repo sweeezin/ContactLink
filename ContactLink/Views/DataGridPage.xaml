@@ -24,7 +24,8 @@
                 CanUserAddRows="False"
                 ItemsSource="{Binding Source}"
                 Margin="{StaticResource SmallLeftRightMargin}"
-                KeyboardNavigation.TabNavigation="Once">
+                KeyboardNavigation.TabNavigation="Once"
+                x:Name="DataGridDisplay">
                 <DataGrid.Columns>
                     <!--
                         TODO:

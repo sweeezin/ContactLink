@@ -23,6 +23,15 @@ public class DataGridViewModel : ObservableObject, INavigationAware
 
     public  void OnNavigatedTo(object parameter)
     {
+        FetchAllStudents();
+    }
+
+    public void OnNavigatedFrom()
+    {
+    }
+
+    public void FetchAllStudents()
+    {
         Source.Clear();
 
         // Replace this with your actual data
@@ -32,9 +41,5 @@ public class DataGridViewModel : ObservableObject, INavigationAware
         {
             Source.Add(item);
         }
-    }
-
-    public void OnNavigatedFrom()
-    {
     }
 }
