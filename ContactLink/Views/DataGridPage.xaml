@@ -16,22 +16,17 @@
         <TextBlock
             Style="{StaticResource PageTitleStyle}"
             Margin="{StaticResource MediumLeftMargin}"
-            Text="{x:Static properties:Resources.DataGridPageTitle}" />
+            Text="Contact Log" />
         <Grid Grid.Row="1">
             <DataGrid
-                AutoGenerateColumns="False"
+                AutoGenerateColumns="True"
                 GridLinesVisibility="Horizontal"
-                CanUserAddRows="False"
+                CanUserAddRows="True"
                 ItemsSource="{Binding Source}"
                 Margin="{StaticResource SmallLeftRightMargin}"
                 KeyboardNavigation.TabNavigation="Once"
                 x:Name="DataGridDisplay">
                 <DataGrid.Columns>
-                    <!--
-                        TODO:
-                        Remove this column definitions and define columns for your data.
-                        Consider adding header properties to Resources.resw
-                    -->
                     <DataGridTextColumn Binding="{Binding FirstName}" Header="First Name" />
                     <DataGridTextColumn Binding="{Binding LastName}" Header="Last Name" />
                     <DataGridTextColumn Binding="{Binding email}" Header="Email" />
@@ -40,7 +35,7 @@
                     <DataGridTextColumn Binding="{Binding organization}" Header="Organization" />
                     <DataGridTextColumn Binding="{Binding mentor_experience}" Header="Mentor EXP" />
                     <DataGridTextColumn Binding="{Binding recieved_from}" Header="Recieved From" />
-                    <DataGridTextColumn Binding="{Binding last_contacted_date}" Header="Status" />
+                    <DataGridTextColumn Binding="{Binding last_contacted_date}" Header="Last Contact" />
                     <DataGridTemplateColumn Header="Symbol">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>

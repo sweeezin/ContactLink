@@ -13,14 +13,11 @@
             <RowDefinition Height="48" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <TextBlock
-            Style="{StaticResource PageTitleStyle}"
-            Margin="{StaticResource MediumLeftMargin}"
-            Text="{x:Static properties:Resources.MainPageTitle}" />
         <Grid
             Grid.Row="1"
             Margin="{StaticResource MediumLeftRightMargin}"
             Background="{DynamicResource MahApps.Brushes.Gray10}">
+            <TextBlock HorizontalAlignment="Left" Margin="24,33,0,0" TextWrapping="Wrap" Text="ContactLink" VerticalAlignment="Top" Height="103" Width="456" FontSize="72"/>
             <!--
             The Mahapps Gray10 color represents where you should place your content.
             Place your content here.
