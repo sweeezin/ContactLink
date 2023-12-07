@@ -8,19 +8,19 @@ namespace ContactLinkDBAccess
 {
     public class CLOG
     {
-        public int SID;
-        public string Name;
+        public int SID { get; set; }
+        public string Name { get; set; }
 
-        public string FirstName;
-        public string LastName;
-        public string number;
-        public string email;
-        public string studentID;
-        public string profession;
-        public string organization;
-        public string mentor_experience;
-        public string recieved_from;
-        public string last_contacted_date;
+        public string FirstName {  get; set; }
+        public string LastName { get; set; }
+        public string number { get; set; }
+        public string email { get; set; }
+        public string studentID { get; set; }
+        public string profession { get; set; }
+        public string organization { get; set; }
+        public string mentor_experience { get; set; }
+        public string recieved_from { get; set; }
+        public string last_contacted_date { get; set; }
 
 
 

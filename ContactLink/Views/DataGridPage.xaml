@@ -31,12 +31,15 @@
                         Remove this column definitions and define columns for your data.
                         Consider adding header properties to Resources.resw
                     -->
-                    <DataGridTextColumn Binding="{Binding OrderID}" Header="OrderID" />
-                    <DataGridTextColumn Binding="{Binding OrderDate}" Header="OrderDate" />
-                    <DataGridTextColumn Binding="{Binding Company}" Header="Company" />
-                    <DataGridTextColumn Binding="{Binding ShipTo}" Header="ShipTo" />
-                    <DataGridTextColumn Binding="{Binding OrderTotal}" Header="OrderTotal" />
-                    <DataGridTextColumn Binding="{Binding Status}" Header="Status" />
+                    <DataGridTextColumn Binding="{Binding FirstName}" Header="First Name" />
+                    <DataGridTextColumn Binding="{Binding LastName}" Header="Last Name" />
+                    <DataGridTextColumn Binding="{Binding email}" Header="Email" />
+                    <DataGridTextColumn Binding="{Binding number}" Header="Number" />
+                    <DataGridTextColumn Binding="{Binding profession}" Header="Profession" />
+                    <DataGridTextColumn Binding="{Binding organization}" Header="Organization" />
+                    <DataGridTextColumn Binding="{Binding mentor_experience}" Header="Mentor EXP" />
+                    <DataGridTextColumn Binding="{Binding recieved_from}" Header="Recieved From" />
+                    <DataGridTextColumn Binding="{Binding last_contacted_date}" Header="Status" />
                     <DataGridTemplateColumn Header="Symbol">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
