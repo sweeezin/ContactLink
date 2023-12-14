@@ -11,7 +11,7 @@ namespace ContactLinkDBAccess
         public int SID { get; set; }
         public string Name { get; set; }
 
-        public string FirstName {  get; set; }
+        public string FirstName { get; set; }
         public string LastName { get; set; }
         public string number { get; set; }
         public string email { get; set; }
@@ -31,11 +31,7 @@ namespace ContactLinkDBAccess
             List<CLOG> contact = new List<CLOG>();
 
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-
-            builder.DataSource = "nutcrackerdb.database.windows.net";
-            builder.UserID = "contactlinkclient";
-            builder.Password = "Big@8013";
-            builder.InitialCatalog = "contactlinkdb";
+            initializeConnection(builder);
 
 
             //string connString = @"Server=tcp:contactlinkserver.database.windows.net,1433;Initial Catalog=ContactLinkDB;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;Authentication=""Active Directory Default";
@@ -76,11 +72,7 @@ namespace ContactLinkDBAccess
 
 
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-
-            builder.DataSource = "nutcrackerdb.database.windows.net";
-            builder.UserID = "contactlinkclient";
-            builder.Password = "Big@8013";
-            builder.InitialCatalog = "contactlinkdb";
+            initializeConnection(builder);
 
 
             //string connString = @"Server=tcp:contactlinkserver.database.windows.net,1433;Initial Catalog=ContactLinkDB;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;Authentication=""Active Directory Default";
@@ -114,11 +106,7 @@ namespace ContactLinkDBAccess
         {
 
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-
-            builder.DataSource = "nutcrackerdb.database.windows.net";
-            builder.UserID = "contactlinkclient";
-            builder.Password = "Big@8013";
-            builder.InitialCatalog = "contactlinkdb";
+            initializeConnection(builder);
 
             using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
             {
@@ -148,10 +136,7 @@ namespace ContactLinkDBAccess
             string lastContactedDate)
         {
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-            builder.DataSource = "nutcrackerdb.database.windows.net";
-            builder.UserID = "contactlinkclient";
-            builder.Password = "Big@8013";
-            builder.InitialCatalog = "contactlinkdb";
+            initializeConnection(builder);
 
             using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
             {
@@ -182,11 +167,56 @@ namespace ContactLinkDBAccess
                     command.Parameters.AddWithValue("@rf", recievedFrom);
                     command.Parameters.AddWithValue("@lcd", lastContactedDate);
 
-                    int rowsAffected = command.ExecuteNonQuery();
-                    Console.WriteLine(rowsAffected + " row(s) updated");
-
+                    command.ExecuteNonQuery();
                 }
             }
+        }
+        public static void addRow()
+        {
+            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+            initializeConnection(builder);
+
+            using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand(@"INSERT INTO ContactLog (lastname, 
+                firstname, 
+                email, 
+                number, 
+                profession, 
+                role, 
+                organization, 
+                mentor_experience, 
+                received_from, 
+                last_contacted_date 
+                ) VALUES
+                (@ln, @fn, @em, @num, @pro, @rol, @org, @mex, @rf, @lcd)", connection))
+                {
+                    command.Parameters.AddWithValue("@ln", "");
+                    command.Parameters.AddWithValue("@fn", "");
+                    command.Parameters.AddWithValue("@em", "");
+                    command.Parameters.AddWithValue("@num", "");
+                    command.Parameters.AddWithValue("@pro", "");
+                    command.Parameters.AddWithValue("@rol", "");
+                    command.Parameters.AddWithValue("@org", "");
+                    command.Parameters.AddWithValue("@mex", "");
+                    command.Parameters.AddWithValue("@rf", "");
+                    command.Parameters.AddWithValue("@lcd", "2022-11-11");
+
+                    command.ExecuteNonQuery();
+                }
+
+            }
+        }
+        public static SqlConnectionStringBuilder initializeConnection(SqlConnectionStringBuilder build)
+        {
+            build.DataSource = "nutcrackerdb.database.windows.net";
+            build.UserID = "contactlinkclient";
+            build.Password = "Big@8013";
+            build.InitialCatalog = "contactlinkdb";
+
+            return build;
         }
     }
 }
