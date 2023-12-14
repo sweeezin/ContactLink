@@ -135,7 +135,7 @@ namespace ContactLinkDBAccess
             }
         }
 
-        public static void UpdateStudent(int studentID,
+        public static void UpdateServer(int studentID,
             string lastName,
             string firstName,
             string email,
