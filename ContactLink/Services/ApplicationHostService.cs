@@ -40,7 +40,7 @@ public class ApplicationHostService : IHostedService
         // Initialize services that you need before app activation
         await InitializeAsync();
 
-        _identityService.InitializeWithAadAndPersonalMsAccounts(_appConfig.IdentityClientId, "http://localhost");
+        _identityService.InitializeWithAadAndPersonalMsAccounts(_appConfig.IdentityClientId, "https://login.microsoftonline.com/common/oauth2/nativeclient");
         await _identityService.AcquireTokenSilentAsync();
 
         await HandleActivationAsync();
