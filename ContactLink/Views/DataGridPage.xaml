@@ -26,7 +26,9 @@
                 Margin="{StaticResource SmallLeftRightMargin}"
                 KeyboardNavigation.TabNavigation="Once"
                 x:Name="DataGridDisplay">
+                
                 <DataGrid.Columns>
+                    <!--
                     <DataGridTextColumn Binding="{Binding FirstName}" Header="First Name" />
                     <DataGridTextColumn Binding="{Binding LastName}" Header="Last Name" />
                     <DataGridTextColumn Binding="{Binding email}" Header="Email" />
@@ -36,6 +38,7 @@
                     <DataGridTextColumn Binding="{Binding mentor_experience}" Header="Mentor EXP" />
                     <DataGridTextColumn Binding="{Binding recieved_from}" Header="Recieved From" />
                     <DataGridTextColumn Binding="{Binding last_contacted_date}" Header="Last Contact" />
+                   
                     <DataGridTemplateColumn Header="Symbol">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
@@ -47,6 +50,7 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
+                    -->
                 </DataGrid.Columns>
 
             </DataGrid>
