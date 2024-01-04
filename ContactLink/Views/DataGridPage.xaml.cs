@@ -48,8 +48,11 @@ public partial class DataGridPage : Page
     private async void Add(object sender, System.Windows.RoutedEventArgs e)
     {
         AddButton.Content = "&#xE001;";
+        CLOG.addRow();
         await Task.Delay(1500);
         AddButton.Content = "ni";
+
+        
 
     }
 }

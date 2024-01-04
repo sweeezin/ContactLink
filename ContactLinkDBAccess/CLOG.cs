@@ -172,7 +172,7 @@ namespace ContactLinkDBAccess
             }
         }
         public static void addRow()
-        {
+        { //TODO: Make sure that the user that adds the row can see the row - not necessary currently because we have not implemented users being unable to see rows.
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
             initializeConnection(builder);
 
