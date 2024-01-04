@@ -16,10 +16,10 @@ public class DataGridViewModel : ObservableObject, INavigationAware
 
     public ObservableCollection<CLOG> Source { get; } = new ObservableCollection<CLOG>();
 
-    public DataGridViewModel(ISampleDataService sampleDataService)
+   /* public DataGridViewModel(ISampleDataService sampleDataService)
     {
         _sampleDataService = sampleDataService;
-    }
+    } */
 
     public  void OnNavigatedTo(object parameter)
     {
@@ -36,7 +36,6 @@ public class DataGridViewModel : ObservableObject, INavigationAware
 
         // Replace this with your actual data
         var data = CLOG.GetAllStudents();
-
         foreach (var item in data)
         {
             Source.Add(item);
