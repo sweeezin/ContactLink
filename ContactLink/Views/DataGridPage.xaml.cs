@@ -25,7 +25,7 @@ public partial class DataGridPage : Page
             CLOG selectedContact = selectedItem as CLOG;
             if (selectedContact != null)
             {
-                 var id = selectedContact.studentID;
+                 var id = selectedContact.ID;
                 CLOG.DeleteCLOG(id);
             }
         }
@@ -41,22 +41,19 @@ public partial class DataGridPage : Page
 
     private void DataGridDisplay_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
     {
-        DeleteButton.Content = "YAY!";
-        await Task.Delay(1500);
-        DeleteButton.Content = "X";
 
         CLOG selectedContact = (CLOG)e.Row.DataContext;
 
-        string firstName = selectedContact.FirstName;
-        string lastName = selectedContact.LastName;
+        string firstName = selectedContact.firstName;
+        string lastName = selectedContact.lastName;
         string email = selectedContact.email;
-        int studentID = selectedContact.studentID;
+        int studentID = selectedContact.ID;
         string number = selectedContact.number;
         string profession = selectedContact.profession;
         string organization = selectedContact.organization;
-        string mentor_experience = selectedContact.mentor_experience;
-        string recieved_from = selectedContact.recieved_from;
-        string LCD = selectedContact.last_contacted_date;
+        string mentor_experience = selectedContact.mentorExperience;
+        string recieved_from = selectedContact.recievedFrom;
+        DateTime LCD = selectedContact.lastContactedDate;
 
         // Now you can use the 'editedContact', 'editedColumn', and 'newCellValue'
         // to update your data or perform any other actions based on the cell edit.

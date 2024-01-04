@@ -132,7 +132,7 @@ namespace ContactLinkDBAccess
             string organization,
             string mentorExperience,
             string recievedFrom,
-            string lastContactedDate)
+            DateTime lastContactedDate)
         {
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
             initializeConnection(builder);
