@@ -208,6 +208,24 @@ namespace ContactLinkDBAccess
 
             }
         }
+        //Use this command to change where we are adding new rows from. Don't let user use it. Place change a row before where we want to add new rows too.
+        public static void devOnlyAutoIncrementChange(int change)
+        {
+           
+            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+            initializeConnection(builder);
+
+            using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand($"DBCC CHECKIDENT('ContactLog', reseed, {change})", connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+
+            }
+        }
         public static SqlConnectionStringBuilder initializeConnection(SqlConnectionStringBuilder build)
         {
             build.DataSource = "nutcrackerdb.database.windows.net";
