@@ -41,9 +41,9 @@ public partial class DataGridPage : Page
 
     private void DataGridDisplay_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
     {
-        // Access the edited item and cell content
-        var editedContact = (CLOG)e.Row.Item;
-        var editedColumn = e.Column;
+        DeleteButton.Content = "YAY!";
+        await Task.Delay(1500);
+        DeleteButton.Content = "X";
 
         CLOG selectedContact = (CLOG)e.Row.DataContext;
 

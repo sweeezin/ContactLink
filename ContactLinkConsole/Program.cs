@@ -3,10 +3,12 @@ using ContactLinkDBAccess;
 
 Console.WriteLine("-- Start to show student info:");
 
-Student.DisplayStudent();
+/*Student.DisplayStudent();
 CLOG.DisplayCLOG();
-CLOG.UpdateServer(13, "Garside", "James", "email", "number", "profession", "role", "organization", "mentorExperience", "recievedFrom", "2022-11-11");
+CLOG.UpdateServer(14, "Garside", "James", "email", "number", "profession", "role", "organization", "mentorExperience", "recievedFrom", "2022-11-11");
 //CLOG.addRow();
-CLOG.DisplayCLOG();
+CLOG.DisplayCLOG(); */
+
+//CLOG.devOnlyAutoIncrementChange(5);
 
 

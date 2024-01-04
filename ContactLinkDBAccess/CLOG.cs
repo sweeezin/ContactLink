@@ -8,19 +8,17 @@ namespace ContactLinkDBAccess
 {
     public class CLOG
     {
-        public int SID { get; set; }
-        public string Name { get; set; }
-
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string number { get; set; }
+        public int ID { get; set; }
+        public string firstName { get; set; }
+        public string lastName { get; set; }
         public string email { get; set; }
-        public int studentID { get; set; }
+        public string number { get; set; }
         public string profession { get; set; }
+        public string role { get; set; }
         public string organization { get; set; }
-        public string mentor_experience { get; set; }
-        public string recieved_from { get; set; }
-        public string last_contacted_date { get; set; }
+        public string mentorExperience { get; set; }
+        public string recievedFrom { get; set; }
+        public DateTime lastContactedDate { get; set; }
 
 
 
@@ -46,16 +44,17 @@ namespace ContactLinkDBAccess
                     while (reader.Read())
                     {
                         CLOG ContactLog = new CLOG();
-                        ContactLog.studentID = reader.GetInt32(0);
-                        ContactLog.LastName = reader.GetString(1);
-                        ContactLog.FirstName = reader.GetString(2);
+                        ContactLog.ID = reader.GetInt32(0);
+                        ContactLog.firstName = reader.GetString(1);
+                        ContactLog.lastName = reader.GetString(2);
                         ContactLog.email = reader.GetString(3);
                         ContactLog.number = reader.GetString(4);
                         ContactLog.profession = reader.GetString(5);
-                        ContactLog.organization = reader.GetString(6);
-                        ContactLog.mentor_experience = reader.GetString(7);
-                        ContactLog.recieved_from = reader.GetString(8);
-                        ContactLog.last_contacted_date = reader.GetString(9);
+                        ContactLog.role = reader.GetString(6);
+                        ContactLog.organization = reader.GetString(7);
+                        ContactLog.mentorExperience = reader.GetString(8);
+                        ContactLog.recievedFrom = reader.GetString(9);
+                        ContactLog.lastContactedDate = reader.GetDateTime(10);
 
 
                         contact.Add(ContactLog);
@@ -85,7 +84,7 @@ namespace ContactLinkDBAccess
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        int studentID = reader.GetInt32(0);
+                        int ID = reader.GetInt32(0);
                         string LastName = reader.GetString(1);
                         string FirstName = reader.GetString(2);
                         string email = reader.GetString(3);
@@ -95,7 +94,7 @@ namespace ContactLinkDBAccess
                         string mentor_experience = reader.GetString(7);
                         string recieved_from = reader.GetString(8);
                         string last_contacted_date = reader.GetString(9);
-                        Console.WriteLine($"{studentID}\t{LastName}\t{FirstName}\t{email}\t{number}\t{profession}\t{organization}\t{mentor_experience}\t{recieved_from}\t{last_contacted_date}");
+                        Console.WriteLine($"{ID}\t{LastName}\t{FirstName}\t{email}\t{number}\t{profession}\t{organization}\t{mentor_experience}\t{recieved_from}\t{last_contacted_date}");
                     }
 
                 }
@@ -172,7 +171,7 @@ namespace ContactLinkDBAccess
             }
         }
         public static void addRow()
-        {
+        { //TODO: Make sure that the user that adds the row can see the row - not necessary currently because we have not implemented users being unable to see rows.
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
             initializeConnection(builder);
 
@@ -204,6 +203,24 @@ namespace ContactLinkDBAccess
                     command.Parameters.AddWithValue("@rf", "");
                     command.Parameters.AddWithValue("@lcd", "2022-11-11");
 
+                    command.ExecuteNonQuery();
+                }
+
+            }
+        }
+        //Use this command to change where we are adding new rows from. Don't let user use it. Place change a row before where we want to add new rows too.
+        public static void devOnlyAutoIncrementChange(int change)
+        {
+           
+            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+            initializeConnection(builder);
+
+            using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand($"DBCC CHECKIDENT('ContactLog', reseed, {change})", connection))
+                {
                     command.ExecuteNonQuery();
                 }
 
