@@ -102,6 +102,34 @@
                 </Button.RenderTransformOrigin>
             </Button>
 
+            <Button Height="25" Width="25" Visibility="Hidden" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0, 0, 145, 29" BorderBrush="LightGray" FontSize="20" x:Name="HorizontalDropdown2" Click="HorizontalDropdownClicked2">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border BorderBrush="LightGray" BorderThickness="2" CornerRadius="105">
+                            <Border.Background>
+                                <SolidColorBrush Color="#3a3d3d"/>
+                                <!-- Replace with your RGB value -->
+                            </Border.Background>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-5,0,0"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+                <!-- Set the content directly in the Button -->
+                <Button.Content>
+                    <!-- Use the Unicode character for "<" -->
+                    &#x003E;
+                </Button.Content>
+                <Button.Foreground>
+                    <SolidColorBrush Color="White"/>
+                </Button.Foreground>
+                <Button.RenderTransform>
+                    <RotateTransform Angle="0" CenterX="0.5" CenterY="0.5"/>
+                </Button.RenderTransform>
+                <Button.RenderTransformOrigin>
+                    <Point X="0.5" Y="0.5"/>
+                </Button.RenderTransformOrigin>
+            </Button>
+
             <Button Visibility="Hidden" Width="35" Height="35" Content="X" FontSize="15" Foreground="Red" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,100,25" x:Name="DeleteButton" Click="Delete">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
