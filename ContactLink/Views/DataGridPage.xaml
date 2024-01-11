@@ -19,7 +19,7 @@
             Text="Contact Log" />
         <Grid Grid.Row="1">
             <DataGrid
-                AutoGenerateColumns="True"
+                AutoGenerateColumns="False"
                 GridLinesVisibility="Horizontal"
                 CanUserAddRows="True"
                 ItemsSource="{Binding Source}"
@@ -29,29 +29,19 @@
                 CellEditEnding="DataGridDisplay_CellEditEnding">
 
                 <DataGrid.Columns>
-                    <!--
-                    <DataGridTextColumn Binding="{Binding FirstName}" Header="First Name" />
-                    <DataGridTextColumn Binding="{Binding LastName}" Header="Last Name" />
-                    <DataGridTextColumn Binding="{Binding email}" Header="Email" />
-                    <DataGridTextColumn Binding="{Binding number}" Header="Number" />
+
+                    <DataGridTextColumn Binding="{Binding firstName}" Header="First Name" ></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding lastName}" Header="Last Name" ></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding email}" Header="Email" ></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding number}" Header="Number" ></DataGridTextColumn>
                     <DataGridTextColumn Binding="{Binding profession}" Header="Profession" />
                     <DataGridTextColumn Binding="{Binding organization}" Header="Organization" />
-                    <DataGridTextColumn Binding="{Binding mentor_experience}" Header="Mentor EXP" />
-                    <DataGridTextColumn Binding="{Binding recieved_from}" Header="Recieved From" />
-                    <DataGridTextColumn Binding="{Binding last_contacted_date}" Header="Last Contact" />
-                   
-                    <DataGridTemplateColumn Header="Symbol">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock
-                                    Margin="{StaticResource SmallLeftRightMargin}"
-                                    HorizontalAlignment="Left"
-                                    Style="{StaticResource SmallIconStyle}"
-                                    Text="{Binding Symbol}" />
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                    -->
+                    <DataGridTextColumn Binding="{Binding mentorExperience}" Header="Mentor EXP" />
+                    <DataGridTextColumn Binding="{Binding recievedFrom}" Header="Recieved From" />
+                    <DataGridTextColumn Binding="{Binding lastContactedDate}" Header="Last Contact" />
+                    
+                    
+                    
                 </DataGrid.Columns>
 
             </DataGrid> 
