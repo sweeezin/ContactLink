@@ -8,6 +8,8 @@ namespace ContactLinkDBAccess
 {
     public class CLOG
     {
+
+        public static DateTime Now { get; }
         public int ID { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }
@@ -170,7 +172,7 @@ namespace ContactLinkDBAccess
                 }
             }
         }
-        public static void addRow()
+        public static void addNewRow()
         { //TODO: Make sure that the user that adds the row can see the row - not necessary currently because we have not implemented users being unable to see rows.
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
             initializeConnection(builder);
@@ -192,16 +194,16 @@ namespace ContactLinkDBAccess
                 ) VALUES
                 (@ln, @fn, @em, @num, @pro, @rol, @org, @mex, @rf, @lcd)", connection))
                 {
-                    command.Parameters.AddWithValue("@ln", "");
-                    command.Parameters.AddWithValue("@fn", "");
-                    command.Parameters.AddWithValue("@em", "");
-                    command.Parameters.AddWithValue("@num", "");
-                    command.Parameters.AddWithValue("@pro", "");
-                    command.Parameters.AddWithValue("@rol", "");
-                    command.Parameters.AddWithValue("@org", "");
-                    command.Parameters.AddWithValue("@mex", "");
-                    command.Parameters.AddWithValue("@rf", "");
-                    command.Parameters.AddWithValue("@lcd", "2022-11-11");
+                    command.Parameters.AddWithValue("@ln", "EMPTY");
+                    command.Parameters.AddWithValue("@fn", "EMPTY");
+                    command.Parameters.AddWithValue("@em", "EMPTY");
+                    command.Parameters.AddWithValue("@num", "EMPTY");
+                    command.Parameters.AddWithValue("@pro", "EMPTY");
+                    command.Parameters.AddWithValue("@rol", "EMPTY");
+                    command.Parameters.AddWithValue("@org", "EMPTY");
+                    command.Parameters.AddWithValue("@mex", "EMPTY");
+                    command.Parameters.AddWithValue("@rf", "EMPTY");
+                    command.Parameters.AddWithValue("@lcd", $"{DateTime.Now}");
 
                     command.ExecuteNonQuery();
                 }
@@ -209,7 +211,7 @@ namespace ContactLinkDBAccess
             }
         }
         //Use this command to change where we are adding new rows from. Don't let user use it. Place change a row before where we want to add new rows too.
-        public static void devOnlyAutoIncrementChange(int change)
+        public static void autoIncrementChange(int change)
         {
            
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
@@ -218,9 +220,8 @@ namespace ContactLinkDBAccess
             using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
             {
                 connection.Open();
-                int count = findNumberOfRows();
 
-                using (SqlCommand command = new SqlCommand($"DBCC CHECKIDENT('ContactLog', reseed, {count})", connection))
+                using (SqlCommand command = new SqlCommand($"DBCC CHECKIDENT('ContactLog', reseed, {change})", connection))
                 {
                     command.ExecuteNonQuery();
                 }
@@ -228,26 +229,8 @@ namespace ContactLinkDBAccess
             }
         }
         
-        public static int findNumberOfRows()
-        {
-
-            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-            initializeConnection(builder);
-
-            using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
-            {
-                connection.Open();
-
-                using (SqlCommand command = new SqlCommand(@"SELECT *
-FROM ContactLog
-WHERE [studentID] IS NULL", connection))
-                {
-                    int count = command.ExecuteNonQuery();
-                    return count;
-                }
-
-            }
-        }
+        
+        
         public static SqlConnectionStringBuilder initializeConnection(SqlConnectionStringBuilder build)
         {
             build.DataSource = "nutcrackerdb.database.windows.net";

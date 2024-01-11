@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.Sql;
 using System.Data.SqlClient;
 using Microsoft.VisualBasic.Logging;
+using ContactLinkDBAccess;
 
 
 namespace ContactLink.ViewModels.SQL_STUFF
@@ -15,8 +16,9 @@ namespace ContactLink.ViewModels.SQL_STUFF
     {
         public static void DisplayStudent()
         {
-            string connString = @"Server=tcp:contactlinkserver.database.windows.net,1433;Initial Catalog=ContactLinkDB;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;Authentication=""Active Directory Default";
-            using (SqlConnection con = new SqlConnection(connString))
+            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+            CLOG.initializeConnection(builder);
+            using (SqlConnection con = new SqlConnection(builder.ConnectionString))
             {
                 con.Open();
 

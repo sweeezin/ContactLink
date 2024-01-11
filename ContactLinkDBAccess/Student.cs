@@ -23,14 +23,9 @@ namespace ContactLinkDBAccess
             List<Student> students = new List<Student>();
 
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-
-            builder.DataSource = "nutcrackerdb.database.windows.net";
-            builder.UserID = "contactlinkclient";
-            builder.Password = "Big@8013";
-            builder.InitialCatalog = "contactlinkdb";
+            CLOG.initializeConnection(builder);
 
 
-            string connString = @"Server=tcp:contactlinkserver.database.windows.net,1433;Initial Catalog=ContactLinkDB;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;Authentication=""Active Directory Default";
             using (SqlConnection con = new SqlConnection(builder.ConnectionString))
             {
                 con.Open();
@@ -57,14 +52,9 @@ namespace ContactLinkDBAccess
 
         public static void DisplayStudent()
         {
-        
 
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-
-            builder.DataSource = "nutcrackerdb.database.windows.net";
-            builder.UserID = "contactlinkclient";
-            builder.Password = "Big@8013";
-            builder.InitialCatalog = "contactlinkdb";
+            CLOG.initializeConnection(builder);
 
 
             //string connString = @"Server=tcp:contactlinkserver.database.windows.net,1433;Initial Catalog=ContactLinkDB;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;Authentication=""Active Directory Default";

@@ -30,15 +30,14 @@ public partial class DataGridPage : Page
             }
         }
 
-        (DataContext as DataGridViewModel).FetchAllStudents();
+        (DataContext as DataGridViewModel).refreshDataGridPage();
     }
 
 
     private void Add(object sender, System.Windows.RoutedEventArgs e)
     {
-
-        CLOG.addRow();
-
+        CLOG.addNewRow();
+        (DataContext as DataGridViewModel).refreshDataGridPage();
     }
 
     private void DataGridDisplay_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)

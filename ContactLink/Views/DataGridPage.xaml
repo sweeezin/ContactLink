@@ -21,7 +21,6 @@
             <DataGrid
                 AutoGenerateColumns="False"
                 GridLinesVisibility="Horizontal"
-                CanUserAddRows="True"
                 ItemsSource="{Binding Source}"
                 Margin="{StaticResource SmallLeftRightMargin}"
                 KeyboardNavigation.TabNavigation="Once"
@@ -30,7 +29,6 @@
 
                 <DataGrid.Columns>
 
-                    <DataGridTextColumn Binding="{Binding ID}" Header="DevID" ></DataGridTextColumn>
                     <DataGridTextColumn Binding="{Binding firstName}" Header="First Name" ></DataGridTextColumn>
                     <DataGridTextColumn Binding="{Binding lastName}" Header="Last Name" ></DataGridTextColumn>
                     <DataGridTextColumn Binding="{Binding email}" Header="Email" ></DataGridTextColumn>

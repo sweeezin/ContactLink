@@ -23,14 +23,14 @@ public class DataGridViewModel : ObservableObject, INavigationAware
 
     public  void OnNavigatedTo(object parameter)
     {
-        FetchAllStudents();
+        refreshDataGridPage();
     }
 
     public void OnNavigatedFrom()
     {
     }
 
-    public void FetchAllStudents()
+    public void refreshDataGridPage()
     {
         Source.Clear();
 
