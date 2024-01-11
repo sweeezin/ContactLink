@@ -4,6 +4,7 @@ using ContactLink.ViewModels;
 using ContactLinkDBAccess;
 using Windows.ApplicationModel.Contacts;
 using System.Windows;
+using System.Windows.Forms;
 
 namespace ContactLink.Views;
 
@@ -41,25 +42,61 @@ public partial class DataGridPage : Page
     }
 
     private void DataGridDisplay_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
-    {
+        {
+
+        string header = (string)e.Column.Header;
 
         CLOG selectedContact = (CLOG)e.Row.DataContext;
-
+        
+        int studentID = selectedContact.ID;
         string firstName = selectedContact.firstName;
         string lastName = selectedContact.lastName;
         string email = selectedContact.email;
-        int studentID = selectedContact.ID;
         string number = selectedContact.number;
+        string role = selectedContact.role;
         string profession = selectedContact.profession;
         string organization = selectedContact.organization;
-        string mentor_experience = selectedContact.mentorExperience;
-        string recieved_from = selectedContact.recievedFrom;
-        DateTime LCD = selectedContact.lastContactedDate;
-
+        string mentorExperience = selectedContact.mentorExperience;
+        string recievedFrom = selectedContact.recievedFrom;
+        DateTime lastContactedDate = selectedContact.lastContactedDate;
+        
+        switch (header)
+            {
+            case ("First Name"):
+                firstName = ((System.Windows.Controls.TextBox)e.EditingElement).Text;
+                break;
+            case ("Last Name"):
+                lastName = ((System.Windows.Controls.TextBox)e.EditingElement).Text;
+                break;
+            case ("Email"):
+                email = ((System.Windows.Controls.TextBox)e.EditingElement).Text;
+                break;
+            case ("Number"):
+                number = ((System.Windows.Controls.TextBox)e.EditingElement).Text;
+                break;
+            case ("role"):
+                role = ((System.Windows.Controls.TextBox)e.EditingElement).Text;
+                break;
+            case ("Profession"):
+                profession = ((System.Windows.Controls.TextBox)e.EditingElement).Text;
+                break;
+            case ("organization"):
+                organization = ((System.Windows.Controls.TextBox)e.EditingElement).Text;
+                break;
+            case ("recieved From"):
+                recievedFrom = ((System.Windows.Controls.TextBox)e.EditingElement).Text;
+                break;
+            case ("Mentor EXP"):
+                mentorExperience = ((System.Windows.Controls.TextBox)e.EditingElement).Text;
+                break;
+            case ("last Contact"):
+                lastContactedDate = DateTime.Parse(((System.Windows.Controls.TextBox)e.EditingElement).Text);
+                break;
+        }
         // Now you can use the 'editedContact', 'editedColumn', and 'newCellValue'
         // to update your data or perform any other actions based on the cell edit.
 
-        CLOG.UpdateServer(studentID, lastName, firstName, email, number, profession, "role", organization, mentor_experience, recieved_from, LCD);
+        CLOG.UpdateServer(studentID, lastName, firstName, email, number, profession, role, organization, mentorExperience, recievedFrom, lastContactedDate);
 
     }
 

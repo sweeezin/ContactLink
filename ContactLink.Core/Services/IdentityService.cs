@@ -206,8 +206,8 @@ public class IdentityService : IIdentityService
         try
         {
             var accounts = await _client.GetAccountsAsync();
-            _authenticationResult = await _client.AcquireTokenSilent(scopes, accounts.FirstOrDefault())
-                                                 .ExecuteAsync();
+            _authenticationResult = await _client.AcquireTokenByIntegratedWindowsAuth(_graphScopes)
+                                                         .ExecuteAsync();
             return true;
         }
         catch (MsalUiRequiredException ex)
