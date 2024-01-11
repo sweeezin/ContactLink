@@ -37,7 +37,7 @@ public partial class DataGridPage : Page
     private void Add(object sender, System.Windows.RoutedEventArgs e)
     {
 
-
+        CLOG.addRow();
 
     }
 

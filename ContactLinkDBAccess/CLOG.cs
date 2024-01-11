@@ -218,10 +218,32 @@ namespace ContactLinkDBAccess
             using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
             {
                 connection.Open();
+                int count = findNumberOfRows();
 
-                using (SqlCommand command = new SqlCommand($"DBCC CHECKIDENT('ContactLog', reseed, {change})", connection))
+                using (SqlCommand command = new SqlCommand($"DBCC CHECKIDENT('ContactLog', reseed, {count})", connection))
                 {
                     command.ExecuteNonQuery();
+                }
+
+            }
+        }
+        
+        public static int findNumberOfRows()
+        {
+
+            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+            initializeConnection(builder);
+
+            using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand(@"SELECT *
+FROM ContactLog
+WHERE [studentID] IS NULL", connection))
+                {
+                    int count = command.ExecuteNonQuery();
+                    return count;
                 }
 
             }
